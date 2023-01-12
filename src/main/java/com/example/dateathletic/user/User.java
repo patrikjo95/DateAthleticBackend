@@ -1,5 +1,6 @@
-package com.example.dateathletic.model;
+package com.example.dateathletic.user;
 
+import com.example.dateathletic.userInfo.UserInfo;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

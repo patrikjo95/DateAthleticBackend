@@ -1,5 +1,6 @@
-package com.example.dateathletic.model;
+package com.example.dateathletic.userInfo;
 
+import com.example.dateathletic.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,4 +21,6 @@ public class UserInfo {
     @MapsId
     @JoinColumn(name = "user_id")
     private User user;
+
+
 }

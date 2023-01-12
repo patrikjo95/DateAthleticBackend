@@ -1,6 +1,6 @@
-package com.example.dateathletic.repo;
+package com.example.dateathletic.userInfo;
 
-import com.example.dateathletic.model.UserInfo;
+import com.example.dateathletic.userInfo.UserInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
