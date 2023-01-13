@@ -1,6 +1,4 @@
-package com.example.dateathletic.userInfo;
-import com.example.dateathletic.userInfo.UserInfo;
-import com.example.dateathletic.userInfo.UserInfoRepo;
+package com.example.dateathletic.user.impl.userInfo;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
