@@ -18,14 +18,14 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "username", unique = true)
+    @Column(nullable = false, unique = true, length = 225)
     private String username;
+
+    @Column(nullable = false, unique = true, length = 225)
+    private String email;
 
     @Column(name = "password")
     private String password;
-
-    @Column(name= "email", unique = true)
-    private String email;
 
     @Column(name = "role")
     private String role;
@@ -37,4 +37,8 @@ public class User {
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
     private UserSwipes userSwipes;
+
+    public User(String username){
+        this.username = username;
+    }
 }
