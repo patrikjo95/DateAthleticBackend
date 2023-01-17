@@ -1,8 +1,6 @@
 package com.dateathletic.backend.service;
 
 import com.dateathletic.backend.domain.User;
-import com.dateathletic.backend.domain.UserInfo;
-import com.dateathletic.backend.repo.UserInfoRepository;
 import com.dateathletic.backend.repo.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,4 +21,9 @@ public class UserService {
     public void registerUser(User user){
         userRepository.save(user);
     }
+
+    public String findUserByEmail(String email){
+        return userRepository.findUserByEmail(email);
+    }
+
 }
