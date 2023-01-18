@@ -13,7 +13,7 @@ public interface UserInfoRepository extends JpaRepository<UserInfo, Long> {
 
     String findUserByAge(String dob);
 
-    String findUserByGender(String gender);
+    String findUserByPreference_gender(String preference_gender);
 
     String findUserByCity(String city);
 

@@ -21,15 +21,17 @@ public class UserInfo {
 
     private String dob;
 
-    private String height;
-
     private String bio;
 
     private String gender;
 
     private String interests;
 
+    private String skilled;
+
     private String city;
+
+    private String preference_gender;
 
     @OneToOne
     @JoinColumn(name = "user_id")

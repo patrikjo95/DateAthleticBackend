@@ -22,8 +22,8 @@ public class UserInfoService {
         return userInfoRepository.findUserByAge(dob);
     }
 
-    public String findUserByGender(String gender){
-        return userInfoRepository.findUserByGender(gender);
+    public String findUserByPreference_gender(String preference_gender){
+        return userInfoRepository.findUserByPreference_gender(preference_gender);
     }
 
     public String findUserByCity(String city){
