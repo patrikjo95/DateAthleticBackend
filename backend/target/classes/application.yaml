@@ -1,16 +1,16 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/db
-    username: erkan
-    password: 123
+    url: jdbc:mysql://localhost:3306/dateathletic
+    username: root
+    password: Tonarsv@rulv1967
 
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL5Dialect
+        dialect: org.hibernate.dialect.MySQLDialect
         format_sql: true
 
 secret:
