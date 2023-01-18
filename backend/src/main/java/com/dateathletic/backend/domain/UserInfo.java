@@ -1,13 +1,12 @@
 package com.dateathletic.backend.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Table(name = "user_info")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserInfo {
@@ -20,8 +19,6 @@ public class UserInfo {
     private String lastname;
 
     private String age;
-
-    private String height;
 
     private String bio;
 
