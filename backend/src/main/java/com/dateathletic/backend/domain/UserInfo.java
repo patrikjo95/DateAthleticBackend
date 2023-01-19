@@ -31,7 +31,7 @@ public class UserInfo {
 
     private String city;
 
-    private String preference_gender;
+    //private String genderpreference;
 
     @OneToOne
     @JoinColumn(name = "user_id")

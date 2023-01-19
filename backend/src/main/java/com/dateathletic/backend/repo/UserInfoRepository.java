@@ -7,13 +7,17 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserInfoRepository extends JpaRepository<UserInfo, Long> {
 
-    String findUserByfNameAndlName(String firstname, String lastname);
+    //String findUserByfNameAndlName(String firstname, String lastname);
 
-    String findUserByInterest(String interest);
+    String findUserByFirstname(String firstname);
+
+    String findUserByLastname(String lastname);
+
+    String findUserByInterests(String interests);
 
     String findUserByDob(String dob);
 
-    String findUserByPreference_gender(String preference_gender);
+    //String findUserByGenderPreference(String genderpreference);
 
     String findUserByCity(String city);
 
