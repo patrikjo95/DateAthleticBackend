@@ -1,4 +1,4 @@
-package com.dateathletic.backend.controller;
+package com.dateathletic.backend.controller.auth;
 
 import com.dateathletic.backend.domain.User;
 import com.dateathletic.backend.domain.UserInfo;
