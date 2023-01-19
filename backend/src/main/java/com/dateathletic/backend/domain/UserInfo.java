@@ -14,18 +14,19 @@ public class UserInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
     private String firstname;
-
+@Column
     private String lastname;
-
+@Column
     private String age;
-
+@Column
     private String bio;
-
+@Column
     private String gender;
-
+     @Column
     private String interests;
-
+@Column
     private String city;
 
     @OneToOne
