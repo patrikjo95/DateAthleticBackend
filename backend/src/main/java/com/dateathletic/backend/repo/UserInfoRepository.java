@@ -11,7 +11,7 @@ public interface UserInfoRepository extends JpaRepository<UserInfo, Long> {
 
     String findUserByInterest(String interest);
 
-    String findUserByAge(String dob);
+    String findUserByDob(String dob);
 
     String findUserByPreference_gender(String preference_gender);
 

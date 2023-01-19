@@ -1,4 +1,4 @@
-package com.dateathletic.backend.controller;
+package com.dateathletic.backend.controller.auth;
 
 import com.dateathletic.backend.dto.LoginDto;
 import com.dateathletic.backend.security.CustomUserDetailsService;
@@ -22,7 +22,7 @@ public class AuthController {
     private final CustomUserDetailsService userDetailsService;
     private final Jwt jwt;
 
-    @PostMapping("/")
+    @PostMapping(value = "/")
     public ResponseEntity<String> login(@RequestBody LoginDto dto){
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(dto.username(), dto.password())

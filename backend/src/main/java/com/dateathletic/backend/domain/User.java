@@ -34,4 +34,7 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Match> matches;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Swipe> swipes;
 }

@@ -18,8 +18,8 @@ public class UserInfoService {
         return userInfoRepository.findUserByInterest(interest);
     }
 
-    public String findUserByAge(String dob){
-        return userInfoRepository.findUserByAge(dob);
+    public String findUserByDob(String dob){
+        return userInfoRepository.findUserByDob(dob);
     }
 
     public String findUserByPreference_gender(String preference_gender){

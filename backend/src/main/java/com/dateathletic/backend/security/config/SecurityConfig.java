@@ -16,14 +16,19 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import static com.dateathletic.backend.BackendApplication.*;
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
 @Configuration
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    private final String[]whiteListUrl={};
-    private final String[]adminUrl={};
+    private final String[]whiteListUrl={
+            GUEST_API, USER_API
+    };
+    private final String[]adminUrl={
+            ADMIN_API
+    };
 
     private final CustomUserDetailsService customUserDetailsService;
     private final JwtFilter customJwtFilter;
@@ -32,8 +37,8 @@ public class SecurityConfig {
     public SecurityFilterChain configure(HttpSecurity http) throws Exception {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/admin/**").hasAuthority("ADMIN")
-                        .requestMatchers("/user/**").hasAnyAuthority("ADMIN", "USER")
+                        .requestMatchers(adminUrl).hasAuthority(ADMIN_ROLE)
+                        .requestMatchers(whiteListUrl).hasAnyAuthority(ADMIN_ROLE, USER_ROLE)
                         .anyRequest().permitAll()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(STATELESS))

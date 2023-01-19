@@ -1,4 +1,4 @@
-package com.dateathletic.backend.controller;
+package com.dateathletic.backend.controller.auth;
 
 import com.dateathletic.backend.domain.User;
 import com.dateathletic.backend.domain.UserInfo;
@@ -39,8 +39,7 @@ public class RegisterController {
 
         userInfo.setFirstname(dto.firstname());
         userInfo.setLastname(dto.lastname());
-        userInfo.setAge(dto.age());
-        userInfo.setHeight(dto.height());
+        userInfo.setDob(dto.age());
         userInfo.setCity(dto.city());
         userInfo.setBio(dto.bio());
         userInfo.setInterests(dto.interests());

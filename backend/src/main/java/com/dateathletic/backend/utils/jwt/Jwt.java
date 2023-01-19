@@ -1,8 +1,10 @@
 package com.dateathletic.backend.utils.jwt;
 
+import com.dateathletic.backend.service.UserService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
@@ -12,10 +14,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 @Component
+@RequiredArgsConstructor
 public class Jwt {
     @Value("${secret.jwt-key}")
     protected String KEY;
     private final int oneHour = 3_600_000;
+    private final UserService userService;
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
     }
@@ -42,10 +46,12 @@ public class Jwt {
     }
 
     private String createToken(Map<String, Object> claims, UserDetails userDetails) {
+        Long userId = userService.findUserByUsername(userDetails.getUsername()).orElseThrow().getId();
         return Jwts.builder()
                 .setClaims(claims)
                 .setSubject(userDetails.getUsername())
                 .claim("authorities", userDetails.getAuthorities())
+                .claim("userid", userId)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() * oneHour))
                 .signWith(SignatureAlgorithm.HS256, KEY).compact();
