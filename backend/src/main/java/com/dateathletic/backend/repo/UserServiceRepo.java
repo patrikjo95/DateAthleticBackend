@@ -23,6 +23,6 @@ public interface UserServiceRepo {
 
   void updateUser(Long id, UpdateUserDto dto);
 
-  void updateUserInfo(Long id, UpdateUserInfoDto dto);
+
 
 }

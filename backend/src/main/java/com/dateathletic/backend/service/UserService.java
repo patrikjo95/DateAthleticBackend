@@ -48,22 +48,7 @@ public class UserService implements UserServiceRepo {
       userRepository.save(updatedUser);
     }
 
-    @Override
-    public void updateUserInfo(Long id, UpdateUserInfoDto dto) {
 
-        User updatedUserInfo = userRepository.findUserById(id);
-
-        updatedUserInfo.getUserInfo().setFirstname(dto.firstname());
-        updatedUserInfo.getUserInfo().setLastname(dto.lastname());
-        updatedUserInfo.getUserInfo().setAge(dto.age());
-        updatedUserInfo.getUserInfo().setBio(dto.bio());
-        updatedUserInfo.getUserInfo().setGender(dto.gender());
-        updatedUserInfo.getUserInfo().setInterests(dto.interests());
-        updatedUserInfo.getUserInfo().setCity(dto.city());
-
-
-        userRepository.save(updatedUserInfo);
-    }
 
 
     @Override
