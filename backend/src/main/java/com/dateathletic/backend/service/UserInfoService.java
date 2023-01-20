@@ -1,9 +1,13 @@
 package com.dateathletic.backend.service;
 
+import com.dateathletic.backend.domain.User;
 import com.dateathletic.backend.repo.UserInfoRepository;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -30,9 +34,9 @@ public class UserInfoService {
         return userInfoRepository.findUserByDob(dob);
     }
 
-    //public String findUserByGenderPreference(String genderpreference){
-    //    return userInfoRepository.findUserByGenderPreference(genderpreference);
-    //}
+    public List<Optional<User>> findUserByGender(String genderpreference){
+        return userInfoRepository.findUserByGender(genderpreference);
+    }
 
     public String findUserByCity(String city){
         return userInfoRepository.findUserByCity(city);
