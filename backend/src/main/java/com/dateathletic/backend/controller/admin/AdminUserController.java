@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import static com.dateathletic.backend.BackendApplication.ADMIN_API;
+
 @RestController
-@RequestMapping("/user/")
-@RolesAllowed({"USER"})
+@RequestMapping(ADMIN_API + "/user/")
 public class AdminUserController {
-    @GetMapping("hi")
-    public String hi(){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return authentication.getName();
-    }
+    // TODO: 2023-01-20 remove user
+    // TODO: 2023-01-20 ban user
+    // TODO: 2023-01-20 hantera permissions
+    // TODO: 2023-01-20 give users their daily swipes << will be challening and and important aspect to this application
 }
