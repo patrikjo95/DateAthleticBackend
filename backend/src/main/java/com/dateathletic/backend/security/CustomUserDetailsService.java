@@ -1,7 +1,7 @@
 package com.dateathletic.backend.security;
 
 import com.dateathletic.backend.domain.User;
-import com.dateathletic.backend.service.UserService;
+import com.dateathletic.backend.service.userservice.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -24,12 +24,13 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 public class SecurityConfig {
 
     private final String[]whiteListUrl={
-            GUEST_API, USER_API
+            USER_API
     };
     private final String[]adminUrl={
             ADMIN_API
     };
 
+    private final PasswordEncoder passwordEncoder;
     private final CustomUserDetailsService customUserDetailsService;
     private final JwtFilter customJwtFilter;
 
@@ -56,12 +57,7 @@ public class SecurityConfig {
     public AuthenticationProvider authProvider(){
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
         authenticationProvider.setUserDetailsService(customUserDetailsService);
-        authenticationProvider.setPasswordEncoder(passwordEncoder());
+        authenticationProvider.setPasswordEncoder(passwordEncoder);
         return authenticationProvider;
-    }
-
-    @Bean
-    PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
     }
 }
