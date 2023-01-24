@@ -10,7 +10,7 @@ import java.util.List;
 import static com.dateathletic.backend.BackendApplication.USER_API;
 
 @RestController
-@RequestMapping(USER_API)
+@RequestMapping(USER_API) //api/v1/user/
 public class UserController {
     // TODO: 2023-01-20 get all friends
     // TODO: 2023-01-20 remove friends

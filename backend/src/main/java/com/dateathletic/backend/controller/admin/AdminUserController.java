@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import static com.dateathletic.backend.BackendApplication.ADMIN_API;
 
 @RestController
-@RequestMapping(ADMIN_API + "/user/")
+@RequestMapping(ADMIN_API + "user/") //api/v1/admin/user/
 public class AdminUserController {
     // TODO: 2023-01-20 remove user
     // TODO: 2023-01-20 ban user
