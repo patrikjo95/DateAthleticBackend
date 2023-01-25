@@ -19,15 +19,15 @@ public class UserInfo {
 
     private String lastname;
 
-    private String dob;
+    private String DoB;
+
+    private String height;
 
     private String bio;
 
     private String gender;
 
     private String interests;
-
-    private String skilled;
 
     private String city;
 

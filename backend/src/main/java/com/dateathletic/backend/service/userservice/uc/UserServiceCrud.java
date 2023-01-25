@@ -13,6 +13,7 @@ public interface UserServiceCrud {
     //READ
     Optional<User>getUserById(Long id);
     Optional<User>getUserByUsername(String username);
+    Optional<User> getUserByEmail(String email);
 
     //UPDATE
     void updateUserInfoById(Long id, UpdateUserDto dto);

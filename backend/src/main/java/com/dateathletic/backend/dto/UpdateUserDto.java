@@ -1,4 +1,13 @@
 package com.dateathletic.backend.dto;
 
-public class UpdateUserDto {
+public record UpdateUserDto(
+        String firstname,
+        String lastname,
+        String DoB,
+        String height,
+        String bio,
+        String gender,
+        String interests,
+        String city,
+        String genderPreference) {
 }

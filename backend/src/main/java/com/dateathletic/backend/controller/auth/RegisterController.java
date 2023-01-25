@@ -19,7 +19,7 @@ import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.NOT_ACCEPTABLE;
 
 @RestController
-@RequestMapping(USER_API + "/register")
+@RequestMapping("/register")
 @RequiredArgsConstructor
 public class RegisterController {
     private final UserService service;
@@ -39,7 +39,8 @@ public class RegisterController {
 
         userInfo.setFirstname(dto.firstname());
         userInfo.setLastname(dto.lastname());
-        userInfo.setDob(dto.age());
+        userInfo.setDoB(dto.age());
+        userInfo.setHeight(dto.height());
         userInfo.setCity(dto.city());
         userInfo.setBio(dto.bio());
         userInfo.setInterests(dto.interests());
