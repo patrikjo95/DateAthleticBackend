@@ -15,9 +15,7 @@ public record SignUpDto(
         @NonNull
         String lastname,
         @NonNull
-        String age,
-        @NonNull
-        String height,
+        String dob,
         @NonNull
         String city,
         @Nullable
@@ -26,5 +24,5 @@ public record SignUpDto(
         String interests,
         @NonNull
         String gender
-) {
-}
+)
+{}

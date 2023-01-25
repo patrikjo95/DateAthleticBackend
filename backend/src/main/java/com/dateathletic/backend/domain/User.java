@@ -1,14 +1,14 @@
 package com.dateathletic.backend.domain;
 
 import jakarta.persistence.*;
+import jdk.jfr.DataAmount;
 import lombok.*;
 
 import java.util.List;
 
 @Entity
 @Table(name = "user")
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
@@ -36,4 +36,6 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Swipe> swipes;
+
+
 }

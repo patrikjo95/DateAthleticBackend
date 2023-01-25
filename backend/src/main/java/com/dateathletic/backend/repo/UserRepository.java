@@ -3,9 +3,11 @@ package com.dateathletic.backend.repo;
 import com.dateathletic.backend.domain.User;
 import com.dateathletic.backend.domain.UserInfo;
 import com.dateathletic.backend.dto.SignUpDto;
+import com.dateathletic.backend.dto.UpdateUserDto;
 import org.hibernate.sql.Update;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
@@ -19,8 +21,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     User findUserById(Long id);
 
-
-
-
+    boolean existsByUsernameAndEmail(String username, String email);
 
 }

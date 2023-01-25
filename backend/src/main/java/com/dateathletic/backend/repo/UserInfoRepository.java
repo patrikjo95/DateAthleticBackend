@@ -5,11 +5,10 @@ import com.dateathletic.backend.domain.UserInfo;
 import com.dateathletic.backend.dto.UpdateUserInfoDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 @Repository
 public interface UserInfoRepository extends JpaRepository<UserInfo, Long> {
-
-    //String findUserByfNameAndlName(String firstname, String lastname);
 
     String findUserByFirstname(String firstname);
 
@@ -18,8 +17,6 @@ public interface UserInfoRepository extends JpaRepository<UserInfo, Long> {
     String findUserByInterests(String interests);
 
     String findUserByDob(String dob);
-
-    //String findUserByGenderPreference(String genderpreference);
 
     String findUserByCity(String city);
 

@@ -2,6 +2,7 @@ package com.dateathletic.backend.security;
 
 import com.dateathletic.backend.domain.User;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @AllArgsConstructor
 public class AuthUser implements UserDetails {
+
     private User user;
 
     @Override
