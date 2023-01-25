@@ -31,9 +31,7 @@ public class UserService implements UserServiceCrud {
     }
 
 
-    public User findUserByEmail(String email) {
-       return userRepository.findUserByEmail(email);
-    }
+
 
 
 

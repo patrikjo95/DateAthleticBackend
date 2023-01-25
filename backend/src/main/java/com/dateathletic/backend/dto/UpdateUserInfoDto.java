@@ -18,7 +18,10 @@ public record UpdateUserInfoDto(
         @NonNull
         String interests,
         @NonNull
-        String city
+        String city,
+
+        @NonNull
+        String genderPreferences
 
 
 

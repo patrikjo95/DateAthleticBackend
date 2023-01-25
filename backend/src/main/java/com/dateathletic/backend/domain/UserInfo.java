@@ -28,6 +28,8 @@ public class UserInfo {
 
     private String city;
 
+    private String genderPreferences;
+
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
