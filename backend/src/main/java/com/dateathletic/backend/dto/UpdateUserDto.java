@@ -4,7 +4,6 @@ public record UpdateUserDto(
         String firstname,
         String lastname,
         String DoB,
-        String height,
         String bio,
         String gender,
         String interests,

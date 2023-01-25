@@ -34,8 +34,8 @@ public class UserInfoService {
         return userInfoRepository.findUserByInterests(interests);
     }
 
-    public String findUserByDob(String dob){
-        return userInfoRepository.findUserByDob(dob);
+    public String findUserByDoB(String DoB){
+        return userInfoRepository.findUserByDoB(DoB);
     }
 
     public List<Optional<User>> findUserByGender(String genderPreference){

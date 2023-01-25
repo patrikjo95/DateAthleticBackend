@@ -49,7 +49,6 @@ public class UserService implements UserServiceCrud {
         userInfo.setGender(dto.gender());
         userInfo.setBio(dto.bio());
         userInfo.setDoB(dto.DoB());
-        userInfo.setHeight(dto.height());
         userInfo.setCity(dto.city());
         userInfo.setGenderPreference(dto.genderPreference());
 

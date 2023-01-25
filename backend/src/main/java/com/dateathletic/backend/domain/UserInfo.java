@@ -21,8 +21,6 @@ public class UserInfo {
 
     private String DoB;
 
-    private String height;
-
     private String bio;
 
     private String gender;
