@@ -2,9 +2,11 @@ package com.dateathletic.backend.repo;
 
 import com.dateathletic.backend.domain.User;
 import com.dateathletic.backend.domain.UserInfo;
+import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.awt.print.Pageable;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,9 +23,11 @@ public interface UserInfoRepository extends JpaRepository<UserInfo, Long> {
 
     String findUserByDob(String dob);
 
-    List<Optional<User>> findUserByGender(String genderpreference);
+    List<Optional<User>> findUserByGender(String genderPreference);
 
     String findUserByCity(String city);
+
+    Page<UserInfo> findAllByFirstname(String firstname, Pageable pageable);
 
 }
 
