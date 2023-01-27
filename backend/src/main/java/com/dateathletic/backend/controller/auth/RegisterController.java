@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static com.dateathletic.backend.BackendApplication.USER_API;
 import static com.dateathletic.backend.BackendApplication.USER_ROLE;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.NOT_ACCEPTABLE;
@@ -39,7 +38,7 @@ public class RegisterController {
 
         userInfo.setFirstname(dto.firstname());
         userInfo.setLastname(dto.lastname());
-        userInfo.setDoB(dto.age());
+        userInfo.setDoB(dto.dob());
         userInfo.setHeight(dto.height());
         userInfo.setCity(dto.city());
         userInfo.setBio(dto.bio());
