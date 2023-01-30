@@ -22,28 +22,31 @@ public class UserInfoService {
     //    return userInfoRepository.findUserByfNameAndlName(firstname, lastname);
     //}
 
-    public String findUserByFirstname(String firstname){
+
+    public Optional<UserInfo> getUserByFirstname(String firstname){
         return userInfoRepository.findUserByFirstname(firstname);
     }
 
-    public String findUserByLastname(String lastname){
+
+    public Optional<UserInfo> getUserByLastname(String lastname){
         return userInfoRepository.findUserByLastname(lastname);
     }
 
-    public String findUserByInterests(String interests){
+    public String getUserByInterests(String interests){
         return userInfoRepository.findUserByInterests(interests);
     }
 
-    public String findUserByDoB(String DoB){
-        return userInfoRepository.findUserByDoB(DoB);
+    public String getUserByDoB(String doB){
+        return userInfoRepository.findUserByDoB(doB);
     }
 
-    public List<Optional<User>> findUserByGender(String genderPreference){
+    public List<Optional<User>> getUserByGender(String genderPreference){
         return userInfoRepository.findUserByGender(genderPreference);
     }
 
-    public String findUserByCity(String city){
+    public String getUserByCity(String city){
         return userInfoRepository.findUserByCity(city);
     }
 
-    Pageable firstPageWithTwoElements = PageRequest.of(0, 2);}
+    //Pageable firstPageWithTwoElements = PageRequest.of(0, 2);
+}

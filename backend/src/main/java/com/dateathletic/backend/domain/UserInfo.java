@@ -19,7 +19,7 @@ public class UserInfo {
 
     private String lastname;
 
-    private String DoB;
+    private String doB;
 
     private String bio;
 

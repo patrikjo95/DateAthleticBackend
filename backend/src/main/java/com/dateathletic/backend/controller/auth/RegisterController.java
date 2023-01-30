@@ -39,7 +39,7 @@ public class RegisterController {
 
         userInfo.setFirstname(dto.firstname());
         userInfo.setLastname(dto.lastname());
-        userInfo.setDoB(dto.DoB());
+        userInfo.setDoB(dto.doB());
         userInfo.setCity(dto.city());
         userInfo.setBio(dto.bio());
         userInfo.setInterests(dto.interests());

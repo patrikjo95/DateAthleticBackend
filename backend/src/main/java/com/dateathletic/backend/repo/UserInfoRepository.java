@@ -15,19 +15,18 @@ public interface UserInfoRepository extends JpaRepository<UserInfo, Long> {
 
     //String findUserByfNameAndlName(String firstname, String lastname);
 
-    String findUserByFirstname(String firstname);
+    Optional<UserInfo> findUserByFirstname(String firstname);
 
-    String findUserByLastname(String lastname);
-
+    Optional<UserInfo> findUserByLastname(String lastname);
     String findUserByInterests(String interests);
 
-    String findUserByDoB(String DoB);
+    String findUserByDoB(String doB);
 
     List<Optional<User>> findUserByGender(String genderPreference);
 
     String findUserByCity(String city);
 
-    Page<UserInfo> findAllByFirstname(String firstname, Pageable pageable);
+    //Page<UserInfo> findAllByFirstname(String firstname, Pageable pageable);
 
 }
 

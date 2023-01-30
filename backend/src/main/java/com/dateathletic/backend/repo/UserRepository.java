@@ -1,6 +1,8 @@
 package com.dateathletic.backend.repo;
 
 import com.dateathletic.backend.domain.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,4 +15,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     boolean existsByUsernameOrEmail(String username, String email);
     Optional<User> findUserByUsername(String username);
     Optional<User> findUserByEmail(String email);
+
+    //Page<User> findAllByUsername(String firstname, Pageable pageable);
+
 }
