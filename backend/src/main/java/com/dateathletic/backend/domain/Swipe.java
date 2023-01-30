@@ -20,7 +20,6 @@ import java.time.Instant;
                         targetClass= SwipeDto.class,
                         columns={
                                 @ColumnResult(name="swiper_id", type=Long.class),
-                                @ColumnResult(name="swiped_user_id", type=Long.class),
                                 @ColumnResult(name="swiped_right", type=Boolean.class)
                         }
                 )
@@ -28,7 +27,7 @@ import java.time.Instant;
 )
 
 @NamedNativeQuery(name = "Swipe.hasThisUserBeenSwipedByThese",
-        query = "SELECT s.user_id as swiper_id, s.swiped_user_id, s.right_swipe as swiped_right " +
+        query = "SELECT s.user_id as swiper_id, s.right_swipe as swiped_right " +
                 "FROM user_swipes s WHERE s.swiped_user_id = :userId AND s.user_id IN :userIds",
         resultSetMapping = "SwipeDtoMapping"
 )

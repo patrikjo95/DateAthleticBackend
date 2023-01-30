@@ -1,8 +1,6 @@
 package com.dateathletic.backend.controller;
 
-import com.dateathletic.backend.domain.Swipe;
-import com.dateathletic.backend.domain.User;
-import com.dateathletic.backend.dto.SwipeDto;
+import com.dateathletic.backend.dto.SwipeDataDto;
 import com.dateathletic.backend.dto.UserDisplayDto;
 import com.dateathletic.backend.service.swipeservice.SwipeService;
 import com.dateathletic.backend.service.userservice.UserService;
@@ -13,10 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
+import static java.lang.Math.min;
 import static java.util.stream.Collectors.toList;
 
 @RestController
@@ -28,40 +25,22 @@ public class testapi {
     private final UserService service1;
 
     @GetMapping("/a")
-    public boolean test1(){
+    public boolean test1() {
         return service.canUserSwipe(1L, Instant.now().minus(Duration.ofHours(24)));
     }
-
     @GetMapping("/b")
-    public int test2(){
+    public int test2(Long uid){
         return service.swipesLeft(1L);
     }
 
     @GetMapping("/c")
-    private List<UserDisplayDto> mmnice(){
-        List<UserDisplayDto>userDisplayList = new ArrayList<>(List.of());
-        List<User> users = service.getSwipes(1L, 10);
-        for (User u : users){
-            List<SwipeDto> dtoList = u.getSwipes().stream()
-                    .map(swipe -> new SwipeDto(swipe.getUser().getId(), swipe.getSwipedUserId(), swipe.isRightSwipe()))
-                    .collect(toList());
-
-            userDisplayList.add(new UserDisplayDto(
-                    u.getUsername(),
-                    u.getUserInfo().getFirstname(),
-                    u.getUserInfo().getLastname(),
-                    u.getUserInfo().getDoB(),
-                    u.getUserInfo().getBio(),
-                    u.getUserInfo().getInterests(),
-                    u.getId(),
-                    dtoList
-            ));
-        }
-        return userDisplayList;
-    }
-
-    @GetMapping("/d")
-    private List<SwipeDto>testmmsa(){
-        return service.hasThisUserBeenSwipedOnByThese(1L, List.of(2L,3L,4L,5L));
+    private SwipeDataDto mmnice(Long uid){
+        List<UserDisplayDto>displayDto;
+        int limit = service.swipesLeft(1L);
+        displayDto = service.getSwipes(1L, min(limit, 10)).stream().map(UserDisplayDto::mapToUserDisplayDto).collect(toList());
+        return new SwipeDataDto(
+                displayDto,
+                service.hasThisUserBeenSwipedOnByThese(1L, displayDto.stream().map(UserDisplayDto::uid).collect(toList())));
     }
 }
+

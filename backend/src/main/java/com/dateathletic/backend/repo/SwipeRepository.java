@@ -33,9 +33,9 @@ public interface SwipeRepository extends JpaRepository<Swipe, Long> {
 
     @Query("""
             SELECT u FROM User u
-            WHERE u.id != :userId
-            AND u.id NOT IN (SELECT m.friendId FROM Match m WHERE m.user.id = :userId)
-            AND u.id NOT IN (SELECT s.swipedUserId FROM Swipe s WHERE s.user.id = :userId)
+            LEFT JOIN Match m ON u.id = m.friendId AND m.user.id = :userId
+            LEFT JOIN Swipe s ON u.id = s.swipedUserId AND s.user.id = :userId
+            WHERE u.id != :userId AND m.friendId IS NULL AND s.swipedUserId IS NULL
             ORDER BY RAND() LIMIT :limit
             """)
     List<User> findAvailableUsers(@Param("userId") Long userId, @Param("limit") int limit);
