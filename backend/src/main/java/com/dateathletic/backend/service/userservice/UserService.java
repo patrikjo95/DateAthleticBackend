@@ -33,7 +33,7 @@ public class UserService implements UserServiceCrud {
     }
     @Override
     public Optional<User> getUserByUsername(String username) {
-        return getUserByUsername(username);
+        return userRepository.findUserByUsername(username);
     }
     @Override
     public Optional<User> getUserByEmail(String email) {
