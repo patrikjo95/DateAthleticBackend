@@ -1,6 +1,7 @@
 package com.dateathletic.backend.dto;
 
 import org.springframework.lang.NonNull;
+import org.springframework.lang.NonNullApi;
 import org.springframework.lang.Nullable;
 
 public record SignUpDto(
@@ -23,6 +24,8 @@ public record SignUpDto(
         @NonNull
         String interests,
         @NonNull
-        String gender
+        String gender,
+        @NonNull
+        String genderPreference
 ) {
 }

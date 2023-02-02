@@ -16,7 +16,7 @@ import static com.dateathletic.backend.BackendApplication.USER_API;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(USER_API) //api/v1/user/
+@RequestMapping("/getUser") //api/v1/user/
 public class UserController {
     //private final UserRepository repository;
     private final UserService service;

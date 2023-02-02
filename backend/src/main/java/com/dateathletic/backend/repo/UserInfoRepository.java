@@ -40,5 +40,6 @@ public interface UserInfoRepository extends JpaRepository<UserInfo, Long> {
     Page<UserInfo> findAllByCity(String city, Pageable pageable);
 
     Page<UserInfo> findAllByInterests(String interests, Pageable pageable);
+
 }
 
