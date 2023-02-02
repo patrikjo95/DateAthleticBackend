@@ -20,5 +20,5 @@ public class Match {
     private User user;
 
     @Column(name = "user_b_id", nullable = false)
-    private Long friendId;
+    private Long matchId;
 }
