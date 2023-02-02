@@ -1,13 +1,9 @@
-package com.dateathletic.backend.service;
+package com.dateathletic.backend.service.userservice;
 
 import com.dateathletic.backend.domain.User;
 import com.dateathletic.backend.domain.UserInfo;
 import com.dateathletic.backend.repo.UserInfoRepository;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,15 +14,9 @@ import java.util.Optional;
 public class UserInfoService {
     private final UserInfoRepository userInfoRepository;
 
-    //public String findUserByfNameAndlName(String firstname, String lastname){
-    //    return userInfoRepository.findUserByfNameAndlName(firstname, lastname);
-    //}
-
-
     public Optional<UserInfo> getUserByFirstname(String firstname){
         return userInfoRepository.findUserByFirstname(firstname);
     }
-
 
     public Optional<UserInfo> getUserByLastname(String lastname){
         return userInfoRepository.findUserByLastname(lastname);
@@ -48,5 +38,4 @@ public class UserInfoService {
         return userInfoRepository.findUserByCity(city);
     }
 
-    //Pageable firstPageWithTwoElements = PageRequest.of(0, 2);
 }

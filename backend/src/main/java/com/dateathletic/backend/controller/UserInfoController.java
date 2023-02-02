@@ -2,46 +2,43 @@ package com.dateathletic.backend.controller;
 
 import com.dateathletic.backend.domain.UserInfo;
 import com.dateathletic.backend.repo.UserInfoRepository;
-import com.dateathletic.backend.service.UserInfoService;
+import com.dateathletic.backend.service.userservice.UserInfoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/knas")
-@CrossOrigin(origins = "http://localhost:63342")
-
+@RequestMapping("/user/info")
 public class UserInfoController {
     private final UserInfoRepository repository;
 
     private final UserInfoService service;
 
     @GetMapping
-    public Page<UserInfo> findAll(@RequestParam int page, @RequestParam int size) {
+    public Page<UserInfo> findAll(@RequestParam int page, @RequestParam int size){
         PageRequest pageRequest = PageRequest.of(page, size);
         return repository.findAll(pageRequest);
     }
 
     @GetMapping("/firstname/{firstname}")
-    public UserInfo findUserByfirstName(@PathVariable String firstname) {
+    public UserInfo findUserByfirstName(@PathVariable String firstname){
         Optional<UserInfo> user = service.getUserByFirstname(firstname);
         return user.orElse(null);
     }
 
     @GetMapping("/lastname/{lastname}")
-    public UserInfo findUserBylastName(@PathVariable String lastname) {
+    public UserInfo findUserBylastName(@PathVariable String lastname){
         Optional<UserInfo> user = service.getUserByLastname(lastname);
         return user.orElse(null);
     }
 
     @GetMapping("/dob/{dob}")
-    public Page<UserInfo> findAllByDob(@PathVariable String dob, @RequestParam int page, @RequestParam int size) {
+    public Page<UserInfo> findAllByDob(@PathVariable String dob, @RequestParam int page, @RequestParam int size){
         Pageable pageable = PageRequest.of(page, size);
         return repository.findAllByDoB(dob, pageable);
     }
@@ -71,15 +68,14 @@ public class UserInfoController {
     }
 
     @GetMapping("/city/{city}")
-    public Page<UserInfo> findAllByCity(@PathVariable String city, @RequestParam int page, @RequestParam int size) {
+    public Page<UserInfo> findAllByCity(@PathVariable String city, @RequestParam int page, @RequestParam int size){
         Pageable pageable = PageRequest.of(page, size);
         return repository.findAllByCity(city, pageable);
     }
 
     @GetMapping("/interests/{interests}")
-    public Page<UserInfo> findAllByInterests(@PathVariable String interests, @RequestParam int page, @RequestParam int size) {
+    public Page<UserInfo> findAllByInterests(@PathVariable String interests, @RequestParam int page, @RequestParam int size){
         Pageable pageable = PageRequest.of(page, size);
         return repository.findAllByInterests(interests, pageable);
     }
-
 }

@@ -11,7 +11,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import static com.dateathletic.backend.BackendApplication.USER_API;
 import static com.dateathletic.backend.BackendApplication.USER_ROLE;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.NOT_ACCEPTABLE;
@@ -38,7 +37,7 @@ public class RegisterController {
 
         userInfo.setFirstname(dto.firstname());
         userInfo.setLastname(dto.lastname());
-        userInfo.setDoB(dto.doB());
+        userInfo.setDoB(dto.dob());
         userInfo.setCity(dto.city());
         userInfo.setBio(dto.bio());
         userInfo.setInterests(dto.interests());

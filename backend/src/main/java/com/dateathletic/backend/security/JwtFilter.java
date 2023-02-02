@@ -1,6 +1,5 @@
 package com.dateathletic.backend.security;
 
-import com.dateathletic.backend.security.CustomUserDetailsService;
 import com.dateathletic.backend.utils.jwt.Jwt;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -39,6 +38,7 @@ public class JwtFilter extends OncePerRequestFilter {
         username = jwt.extractUsername(token);
         if(username != null && SecurityContextHolder.getContext().getAuthentication() == null){
             UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+            System.out.println(userDetails.getAuthorities());
             if(jwt.validateToken(token, userDetails)){
                 UsernamePasswordAuthenticationToken authToken =
                         new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities()); //null, becasue the user is already logged in

@@ -9,6 +9,7 @@ import com.dateathletic.backend.service.userservice.uc.UserServiceCrud;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -27,6 +28,11 @@ public class UserService implements UserServiceCrud {
     public void registerUser(User user) {
         userRepository.save(user);
     }
+
+    @Override
+    public void processSwipes(List<User> users) {
+        userRepository.saveAll(users);
+    }
     @Override
     public Optional<User> getUserById(Long id) {
         return userRepository.findById(id);
@@ -39,6 +45,13 @@ public class UserService implements UserServiceCrud {
     public Optional<User> getUserByEmail(String email) {
         return userRepository.findUserByEmail(email);
     }
+
+    @Override
+    public List<User> getUsersWithIds(List<Long> ids) {
+        return userRepository.getAllUsersWithIds(ids);
+    }
+
+
     @Override
     public void updateUserInfoById(Long id, UpdateUserDto dto) {
         Optional<User> rawUser = userRepository.findById(id);
