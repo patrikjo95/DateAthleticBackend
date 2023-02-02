@@ -33,13 +33,19 @@ public interface SwipeRepository extends JpaRepository<Swipe, Long> {
 
     @Query("""
             SELECT u FROM User u
-            LEFT JOIN Match m ON u.id = m.friendId AND m.user.id = :userId
+            LEFT JOIN Match m ON u.id = m.matchId AND m.user.id = :userId
             LEFT JOIN Swipe s ON u.id = s.swipedUserId AND s.user.id = :userId
-            WHERE u.id != :userId AND m.friendId IS NULL AND s.swipedUserId IS NULL
+            WHERE u.id != :userId AND m.matchId IS NULL AND s.swipedUserId IS NULL
             ORDER BY RAND() LIMIT :limit
             """)
     List<User> findAvailableUsers(@Param("userId") Long userId, @Param("limit") int limit);
 
     @Query(name = "Swipe.hasThisUserBeenSwipedByThese", nativeQuery = true)
     List<SwipeDto> hasThisUserBeenSwipedByThese(Long userId, List<Long>userIds);
+
+    @Query(value = """
+            SELECT (CASE WHEN COUNT(s) = 0 THEN 0 WHEN COUNT(s) < 2 THEN MAX(s.cycle) ELSE MAX(s.cycle) + 1 END) 
+            FROM Swipe s WHERE s.user.id = :userId
+            """)
+    int findMaxCycleByUserId(@Param("userId") Long userId);
 }
