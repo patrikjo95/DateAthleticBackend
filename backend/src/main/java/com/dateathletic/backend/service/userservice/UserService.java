@@ -33,7 +33,6 @@ public class UserService implements UserServiceCrud {
     public void processSwipes(List<User> users) {
         userRepository.saveAll(users);
     }
-
     @Override
     public Optional<User> getUserById(Long id) {
         return userRepository.findById(id);
@@ -51,6 +50,8 @@ public class UserService implements UserServiceCrud {
     public List<User> getUsersWithIds(List<Long> ids) {
         return userRepository.getAllUsersWithIds(ids);
     }
+
+
     @Override
     public void updateUserInfoById(Long id, UpdateUserDto dto) {
         Optional<User> rawUser = userRepository.findById(id);
@@ -60,8 +61,7 @@ public class UserService implements UserServiceCrud {
         userInfo.setLastname(dto.lastname());
         userInfo.setGender(dto.gender());
         userInfo.setBio(dto.bio());
-        userInfo.setDoB(dto.DoB());
-        userInfo.setHeight(dto.height());
+        userInfo.setDoB(dto.doB());
         userInfo.setCity(dto.city());
         userInfo.setGenderPreference(dto.genderPreference());
 
