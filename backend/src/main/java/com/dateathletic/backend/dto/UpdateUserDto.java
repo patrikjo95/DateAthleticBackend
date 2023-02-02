@@ -3,8 +3,7 @@ package com.dateathletic.backend.dto;
 public record UpdateUserDto(
         String firstname,
         String lastname,
-        String DoB,
-        String height,
+        String doB,
         String bio,
         String gender,
         String interests,
