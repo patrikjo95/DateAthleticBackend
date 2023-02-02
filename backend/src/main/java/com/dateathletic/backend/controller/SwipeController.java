@@ -23,11 +23,11 @@ import static java.util.stream.Collectors.toList;
 @RequestMapping("/user/swipe")
 @RequiredArgsConstructor
 public class SwipeController {
-    protected final AuthUser loggedInUser
-            = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    protected AuthUser loggedInUser = null;
     private final SwipeService service;
     @GetMapping("/canSwipe")
     public Boolean canUserSwipe(){
+        loggedInUser = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return service.canUserSwipe(
                 loggedInUser.getUserId(),
                 now().minus(ofHours(24))
@@ -35,10 +35,12 @@ public class SwipeController {
     }
     @GetMapping("/swipesLeft")
     public Integer swipesLeft(){
+        loggedInUser = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return service.swipesLeft(loggedInUser.getUserId());
     }
     @GetMapping("/getSwipes")
     public SwipeDataDto getSwipes(){
+        loggedInUser = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<UserDisplayDto> displayDto;
         int limit = service.swipesLeft(
                 loggedInUser.getUserId());
@@ -55,6 +57,7 @@ public class SwipeController {
 
     @GetMapping("/processCompletedSwipes")
     public void processCompletedSwipes(@RequestBody CompletedSwipesDto dataDto){
+        loggedInUser = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (dataDto == null) throw new RuntimeException("");
         service.processSwipes(dataDto);
     }
