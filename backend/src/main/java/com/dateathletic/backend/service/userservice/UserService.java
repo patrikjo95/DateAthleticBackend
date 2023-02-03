@@ -28,7 +28,6 @@ public class UserService implements UserServiceCrud {
     public void registerUser(User user) {
         userRepository.save(user);
     }
-
     @Override
     public void processSwipes(List<User> users) {
         userRepository.saveAll(users);
@@ -45,13 +44,10 @@ public class UserService implements UserServiceCrud {
     public Optional<User> getUserByEmail(String email) {
         return userRepository.findUserByEmail(email);
     }
-
     @Override
     public List<User> getUsersWithIds(List<Long> ids) {
         return userRepository.getAllUsersWithIds(ids);
     }
-
-
     @Override
     public void updateUserInfoById(Long id, UpdateUserDto dto) {
         Optional<User> rawUser = userRepository.findById(id);
