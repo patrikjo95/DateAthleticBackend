@@ -15,7 +15,7 @@ public record SignUpDto(
         @NonNull
         String lastname,
         @NonNull
-        String dob,
+        String doB,
         @NonNull
         String height,
         @NonNull
