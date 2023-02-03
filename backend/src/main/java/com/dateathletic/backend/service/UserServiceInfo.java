@@ -44,9 +44,9 @@ import org.springframework.stereotype.Service;
 
             updatedUserInfo.setFirstname(dto.firstname());
             updatedUserInfo.setLastname(dto.lastname());
-            updatedUserInfo.setDob(dto.dob());
+           // updatedUserInfo.setDob(dto.dob());
             updatedUserInfo.setBio(dto.bio());
-            updatedUserInfo.setGender(dto.gender());
+           // updatedUserInfo.setGender(dto.gender());
             updatedUserInfo.setInterests(dto.interests());
             updatedUserInfo.setCity(dto.city());
 

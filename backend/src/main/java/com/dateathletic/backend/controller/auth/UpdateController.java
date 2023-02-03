@@ -3,8 +3,8 @@ package com.dateathletic.backend.controller.auth;
 
 import com.dateathletic.backend.dto.UpdateUserDto;
 import com.dateathletic.backend.dto.UpdateUserInfoDto;
-import com.dateathletic.backend.service.UserService;
 import com.dateathletic.backend.service.UserServiceInfo;
+import com.dateathletic.backend.service.userservice.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +18,7 @@ import static com.dateathletic.backend.BackendApplication.USER_API;
 public class UpdateController {
 
     private final UserServiceInfo userServiceInfo;
+
     private final UserService userService;
 
 

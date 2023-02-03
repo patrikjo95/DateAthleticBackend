@@ -1,6 +1,6 @@
 package com.dateathletic.backend.utils.jwt;
 
-import com.dateathletic.backend.service.UserService;
+import com.dateathletic.backend.service.userservice.UserService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

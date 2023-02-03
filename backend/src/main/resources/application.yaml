@@ -3,7 +3,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/dateathletic
     username: root
-    password:
+    password: bigboydb123
 
 
 

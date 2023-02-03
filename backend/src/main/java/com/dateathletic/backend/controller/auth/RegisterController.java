@@ -5,9 +5,8 @@ import com.dateathletic.backend.domain.UserInfo;
 import com.dateathletic.backend.dto.SignUpDto;
 import com.dateathletic.backend.dto.UpdateUserDto;
 import com.dateathletic.backend.dto.UpdateUserInfoDto;
-import com.dateathletic.backend.service.UserService;
 import com.dateathletic.backend.service.UserServiceInfo;
-import com.dateathletic.backend.service.uc.UserServiceCrud;
+import com.dateathletic.backend.service.userservice.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,11 +23,12 @@ import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.NOT_ACCEPTABLE;
 
 @RestController
-@RequestMapping( path = USER_API + "/register", produces = "application/json;")
+@CrossOrigin(origins = "http://localhost:63342")
+@RequestMapping( path = USER_API + "/register")
 @RequiredArgsConstructor
 public class RegisterController {
 
- private final UserServiceInfo userServiceInfo;
+
 
 
     private final UserService userService;
@@ -42,7 +42,7 @@ public class RegisterController {
             return new ResponseEntity<>("Username or email already exists", NOT_ACCEPTABLE);
 
 
-        userService.registerUser(dto);
+       userService.registerUser(dto);
         return new ResponseEntity<>("User created, you may log in now", CREATED);
     }
 

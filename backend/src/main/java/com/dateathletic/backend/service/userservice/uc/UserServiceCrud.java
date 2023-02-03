@@ -8,8 +8,7 @@ import java.util.Optional;
 
 public interface UserServiceCrud {
     //CREATE
-    void registerUser(User user);
-
+    void registerUser(SignUpDto dto);
     //READ
     Optional<User>getUserById(Long id);
     Optional<User>getUserByUsername(String username);
@@ -20,4 +19,8 @@ public interface UserServiceCrud {
 
     //DELETE
     void deleteUser(User user);
+
+    void updateUser(Long id, UpdateUserDto dto);
+
+  
 }

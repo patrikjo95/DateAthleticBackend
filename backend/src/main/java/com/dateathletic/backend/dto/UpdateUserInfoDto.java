@@ -9,19 +9,19 @@ public record UpdateUserInfoDto(
         String firstname,
         @NonNull
         String lastname,
-       @NonNull
-       String dob,
+       //@NonNull
+       //String dob,
         @NonNull
         String bio,
-        @NonNull
-        String gender,
+        //@NonNull
+        //String gender,
         @NonNull
         String interests,
         @NonNull
-        String city,
+        String city
 
-        @NonNull
-        String genderPreferences
+        //@NonNull
+        //String genderPreferences
 
 
 
