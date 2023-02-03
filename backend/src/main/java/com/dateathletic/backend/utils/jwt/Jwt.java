@@ -52,7 +52,7 @@ public class Jwt {
                 .setSubject(userDetails.getUsername())
                 .claim("userid", userId)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() * oneHour))
+                .setExpiration(new Date(System.currentTimeMillis() + oneHour))
                 .signWith(SignatureAlgorithm.HS256, KEY).compact();
     }
 

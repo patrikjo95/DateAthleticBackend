@@ -2,8 +2,6 @@ package com.dateathletic.backend.dto;
 
 import com.dateathletic.backend.domain.User;
 
-import java.util.List;
-
 public record UserDisplayDto(String username, String firstname, String lastname, String dob, String bio, String preferences, Long uid) {
     public static UserDisplayDto mapToUserDisplayDto(User user) {
         return new UserDisplayDto(
