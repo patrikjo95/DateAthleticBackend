@@ -19,4 +19,14 @@ public record ImageUrlDto(
         entity.setUrl4(dto.url4);
         entity.setUrl5(dto.url5);
     }
+
+    public static ImageUrlDto mapEntityToDto(UserProfileImg entity){
+        return new ImageUrlDto(
+                entity.getMainImg(),
+                entity.getUrl1(),
+                entity.getUrl2(),
+                entity.getUrl3(),
+                entity.getUrl4(),
+                entity.getUrl5());
+    }
 }

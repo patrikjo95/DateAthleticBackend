@@ -7,6 +7,8 @@ import com.dateathletic.backend.repo.UserInfoRepository;
 import com.dateathletic.backend.repo.UserRepository;
 import com.dateathletic.backend.service.userservice.uc.UserServiceCrud;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -66,5 +68,9 @@ public class UserService implements UserServiceCrud {
     @Override
     public void deleteUser(User user) {
         userRepository.delete(user);
+    }
+
+    public Page<User> findAllByUsername(String username, Pageable pageable){
+        return userRepository.findAllByUsername(username, pageable);
     }
 }

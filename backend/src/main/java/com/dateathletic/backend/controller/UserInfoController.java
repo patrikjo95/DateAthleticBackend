@@ -13,16 +13,14 @@ import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/user/info")
+@RequestMapping("/user/search-by")
 public class UserInfoController {
-    private final UserInfoRepository repository;
-
     private final UserInfoService service;
 
     @GetMapping
     public Page<UserInfo> findAll(@RequestParam int page, @RequestParam int size){
         PageRequest pageRequest = PageRequest.of(page, size);
-        return repository.findAll(pageRequest);
+        return service.findAll(pageRequest);
     }
 
     @GetMapping("/firstname/{firstname}")
@@ -40,42 +38,42 @@ public class UserInfoController {
     @GetMapping("/dob/{dob}")
     public Page<UserInfo> findAllByDob(@PathVariable String doB, @RequestParam int page, @RequestParam int size){
         Pageable pageable = PageRequest.of(page, size);
-        return repository.findAllByDoB(doB, pageable);
+        return service.findAllByDoB(doB, pageable);
     }
 
     @GetMapping("/firstname2/{firstname}")
     public Page<UserInfo> findAllByFirstname(@PathVariable String firstname, @RequestParam int page, @RequestParam int size) {
         Pageable pageable = PageRequest.of(page, size);
-        return repository.findAllByFirstname(firstname, pageable);
+        return service.findAllByFirstname(firstname, pageable);
     }
 
     @GetMapping("/lastname2/{lastname}")
     public Page<UserInfo> findAllByLastname(@PathVariable String lastname, @RequestParam int page, @RequestParam int size) {
         Pageable pageable = PageRequest.of(page, size);
-        return repository.findAllByLastname(lastname, pageable);
+        return service.findAllByLastname(lastname, pageable);
     }
 
     @GetMapping("/gender/{gender}")
     public Page<UserInfo> findAllByGender(@PathVariable String gender, @RequestParam int page, @RequestParam int size) {
         Pageable pageable = PageRequest.of(page, size);
-        return repository.findAllByGender(gender, pageable);
+        return service.findAllByGender(gender, pageable);
     }
 
     @GetMapping("/genderpreference/{genderpreference}")
     public Page<UserInfo> findAllByGenderpreference(@PathVariable String genderPreference, @RequestParam int page, @RequestParam int size) {
         Pageable pageable = PageRequest.of(page, size);
-        return repository.findAllByGenderPreference(genderPreference, pageable);
+        return service.findAllByGenderPreference(genderPreference, pageable);
     }
 
     @GetMapping("/city/{city}")
     public Page<UserInfo> findAllByCity(@PathVariable String city, @RequestParam int page, @RequestParam int size){
         Pageable pageable = PageRequest.of(page, size);
-        return repository.findAllByCity(city, pageable);
+        return service.findAllByCity(city, pageable);
     }
 
     @GetMapping("/interests/{interests}")
     public Page<UserInfo> findAllByInterests(@PathVariable String interests, @RequestParam int page, @RequestParam int size){
         Pageable pageable = PageRequest.of(page, size);
-        return repository.findAllByInterests(interests, pageable);
+        return service.findAllByInterests(interests, pageable);
     }
 }

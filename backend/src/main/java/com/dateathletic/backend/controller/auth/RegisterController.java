@@ -29,7 +29,6 @@ public class RegisterController {
             return new ResponseEntity<>("Username or email already exists", NOT_ACCEPTABLE);
 
         User user = new User();
-
         mapDtoToUser(dto, user, passwordEncoder);
 
         service.registerUser(user);
