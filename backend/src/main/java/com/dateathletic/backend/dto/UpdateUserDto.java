@@ -8,5 +8,7 @@ public record UpdateUserDto(
         String gender,
         String interests,
         String city,
-        String genderPreference) {
+        String genderPreference,
+        String[]ImageUrl
+) {
 }
