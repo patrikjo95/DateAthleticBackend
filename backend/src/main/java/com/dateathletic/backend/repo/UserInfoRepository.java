@@ -26,7 +26,7 @@ public interface UserInfoRepository extends JpaRepository<UserInfo, Long> {
 
     Page<UserInfo> findAllByFirstname(String firstname, Pageable pageable);
 
-    Page<UserInfo> findAllByDoB(String dob, Pageable pageable);
+    Page<UserInfo> findAllByDoB(String doB, Pageable pageable);
 
     Page<UserInfo> findAllByLastname(String lastname, Pageable pageable);
 

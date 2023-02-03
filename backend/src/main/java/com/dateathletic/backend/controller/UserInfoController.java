@@ -38,9 +38,9 @@ public class UserInfoController {
     }
 
     @GetMapping("/dob/{dob}")
-    public Page<UserInfo> findAllByDob(@PathVariable String dob, @RequestParam int page, @RequestParam int size){
+    public Page<UserInfo> findAllByDob(@PathVariable String doB, @RequestParam int page, @RequestParam int size){
         Pageable pageable = PageRequest.of(page, size);
-        return repository.findAllByDoB(dob, pageable);
+        return repository.findAllByDoB(doB, pageable);
     }
 
     @GetMapping("/firstname2/{firstname}")

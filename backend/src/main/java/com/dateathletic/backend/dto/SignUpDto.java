@@ -22,7 +22,7 @@ public record SignUpDto(
         @NonNull
         String lastname,
         @NonNull
-        String dob,
+        String doB,
         @NonNull
         String city,
         @Nullable
@@ -47,7 +47,7 @@ public record SignUpDto(
 
                 userInfo.setFirstname(dto.firstname());
                 userInfo.setLastname(dto.lastname());
-                userInfo.setDoB(dto.dob());
+                userInfo.setDoB(dto.doB());
                 userInfo.setCity(dto.city());
                 userInfo.setBio(dto.bio());
                 userInfo.setInterests(dto.interests());

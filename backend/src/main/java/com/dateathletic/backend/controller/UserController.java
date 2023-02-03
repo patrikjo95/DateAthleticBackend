@@ -33,11 +33,6 @@ public class UserController {
         return user.orElse(null);
     }
 
-   /* @PostMapping("/delete/{username}")
-    public void delete(@PathVariable String username){
-        User user = service.findUserByUsername(username).get();
-        service.deleteUser(user);
-    }   Jag tycker att en user ska inte kunna ta bort sitt konto bara sådär, istället kontakta support*/
 
     @GetMapping("/username2/{username}")
     public Page<User> findAllByUsername(@PathVariable String username, @RequestParam int page, @RequestParam int size) {
