@@ -21,7 +21,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         Optional<User> data = userService.findUserByUsername(username);
         if (data.isEmpty()) throw new UsernameNotFoundException("Username not found");
         return new AuthUser(
-            data.get()
+            data.get(), data.get().getId()
         );
     }
 }

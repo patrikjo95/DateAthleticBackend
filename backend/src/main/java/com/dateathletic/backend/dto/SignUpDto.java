@@ -14,18 +14,17 @@ public record SignUpDto(
         String firstname,
         @NonNull
         String lastname,
-        @Nullable
+        @NonNull
         String dob,
+        @NonNull
+        String height,
         @NonNull
         String city,
         @Nullable
         String bio,
-      @Nullable
+        @NonNull
         String interests,
-      @Nullable
-        String gender,
-
-        @Nullable
-        String genderPrefrences
-)
-{}
+        @NonNull
+        String gender
+) {
+}

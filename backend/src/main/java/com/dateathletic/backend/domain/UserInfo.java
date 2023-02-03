@@ -1,7 +1,9 @@
 package com.dateathletic.backend.domain;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "user_info")
@@ -13,12 +15,13 @@ public class UserInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     private String firstname;
 
     private String lastname;
 
-    private String dob;
+    private String DoB;
+
+    private String height;
 
     private String bio;
 
@@ -28,12 +31,8 @@ public class UserInfo {
 
     private String city;
 
-    private String genderPreferences;
-
+    private String genderPreference;
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
-
-
-
 }
