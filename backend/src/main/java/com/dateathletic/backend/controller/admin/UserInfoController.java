@@ -1,4 +1,4 @@
-package com.dateathletic.backend.controller;
+package com.dateathletic.backend.controller.admin;
 
 import com.dateathletic.backend.domain.UserInfo;
 import com.dateathletic.backend.repo.UserInfoRepository;
@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/user/info")
+@RequestMapping("admin/user/info")
 public class UserInfoController {
     private final UserInfoRepository repository;
 

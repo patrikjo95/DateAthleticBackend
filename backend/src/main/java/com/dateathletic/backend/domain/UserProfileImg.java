@@ -5,7 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 import static jakarta.persistence.GenerationType.IDENTITY;
+import static java.util.List.of;
 
 @Entity
 @Table(name = "user_images")
@@ -27,4 +30,8 @@ public class UserProfileImg {
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    public List<String> getImagePaths(){
+        return of(mainImg, url1, url2, url3, url4, url5);
+    }
 }
