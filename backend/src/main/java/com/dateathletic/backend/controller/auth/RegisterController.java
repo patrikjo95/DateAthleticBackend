@@ -7,16 +7,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static com.dateathletic.backend.dto.SignUpDto.mapDtoToUser;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.NOT_ACCEPTABLE;
 
 @RestController
+@CrossOrigin (origins = "http://localhost:63342/")
 @RequestMapping("/register")
 @RequiredArgsConstructor
 public class RegisterController {
@@ -30,7 +28,7 @@ public class RegisterController {
 
         User user = new User();
 
-        mapDtoToUser(dto, user, passwordEncoder);
+       mapDtoToUser(dto, user, passwordEncoder);
 
         service.registerUser(user);
         return new ResponseEntity<>("User created, you may log in now", CREATED);

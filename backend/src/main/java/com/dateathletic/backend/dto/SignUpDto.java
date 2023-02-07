@@ -32,13 +32,13 @@ public record SignUpDto(
         @NonNull
         String gender,
         @NonNull
-        String genderPreference,
-        @NonNull
-        ImageUrlDto imageUrlsDto
+        String genderPreference
+       /* @Nullable
+        ImageUrlDto imageUrlsDto*/
 ) {
         public static void mapDtoToUser(SignUpDto dto, User user, PasswordEncoder passwordEncoder){
                 UserInfo userInfo = new UserInfo();
-                UserProfileImg userProfileImg = new UserProfileImg();
+               // UserProfileImg userProfileImg = new UserProfileImg();
 
                 user.setUsername(dto.username());
                 user.setEmail(dto.email());
@@ -54,12 +54,14 @@ public record SignUpDto(
                 userInfo.setGender(dto.gender());
                 userInfo.setGenderPreference(dto.genderPreference);
 
-                mapToEntityImageUrl(dto.imageUrlsDto(), userProfileImg);
+             /*   mapToEntityImageUrl(dto.imageUrlsDto(), userProfileImg);
 
                 user.setProfileImg(userProfileImg);
-                userProfileImg.setUser(user);
+                userProfileImg.setUser(user);*/
 
                 user.setUserInfo(userInfo);
                 userInfo.setUser(user);
+
+
         }
 }

@@ -19,3 +19,4 @@ spring:
 
 secret:
   jwt-key: bill-ge-oss-vg
+
