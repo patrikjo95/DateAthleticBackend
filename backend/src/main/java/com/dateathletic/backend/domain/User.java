@@ -42,6 +42,6 @@ public class User {
     private List<Swipe> swipes;
 
     @JsonBackReference
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private UserProfileImg profileImg;
 }
