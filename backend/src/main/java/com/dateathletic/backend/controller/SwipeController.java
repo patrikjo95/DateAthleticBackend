@@ -46,7 +46,7 @@ public class SwipeController {
                 loggedInUser.getUserId());
         displayDto = service.getSwipes(
                 loggedInUser.getUserId(), min(limit, 10)).stream()
-                .map(UserDisplayDto::mapToUserDisplayDto).collect(toList());
+                .map(UserDisplayDto::mapToDto).collect(toList());
         return new SwipeDataDto(
                 displayDto,
                 service.hasThisUserBeenSwipedOnByThese(
