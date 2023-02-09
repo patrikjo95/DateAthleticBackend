@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 
-@RequiredArgsConstructor
 public record UserDisplayDto(
         String username,
         String firstname,
@@ -13,7 +12,7 @@ public record UserDisplayDto(
         String email,
         String bio,
         String city,
-        String dob,
+        String doB,
         String interests,
         String preference,
         List<String> imagePath,

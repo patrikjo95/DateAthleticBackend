@@ -27,9 +27,4 @@ public class ProfileController {
         User user = userService.getUserById(loggedInUser.getUserId()).orElseThrow();
         return UserDisplayDto.mapToDto(user);
     }
-
-    @GetMapping("/mymatches")
-    public void getMyFriends(@RequestParam("page") int page){
-        matchService.findMyMatches(loggedInUser.getUserId(), PageRequest.of(page, 10));
-    }
 }
