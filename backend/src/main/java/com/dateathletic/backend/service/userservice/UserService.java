@@ -18,7 +18,14 @@ public class UserService implements UserServiceCrud {
     private final UserRepository userRepository;
     private final UserInfoRepository userInfoRepository;
 
-    public boolean existsByUsernameAndEmail(String username, String email){
+    public boolean existsByUsername(String username) {
+        return userRepository.existsByUsername(username);
+    }
+
+    public boolean existsByEmail(String email) {
+        return userRepository.existsByEmail(email);
+    }
+    public boolean existsByUsernameOrEmail(String username, String email){
         return userRepository.existsByUsernameOrEmail(username, email);
     }
     public Optional<User> findUserByUsername(String username){

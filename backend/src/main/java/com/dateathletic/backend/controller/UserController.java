@@ -1,13 +1,13 @@
 package com.dateathletic.backend.controller;
 
 import com.dateathletic.backend.domain.User;
+import com.dateathletic.backend.dto.CheckForUserDto;
 import com.dateathletic.backend.dto.UserDisplayDto;
 import com.dateathletic.backend.service.userservice.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -20,4 +20,16 @@ public class UserController {
             User user = service.getUserByUsername(username).orElseThrow();
             return UserDisplayDto.mapToDto(user);
     }
+
+    @GetMapping("/username/email")
+    public ResponseEntity<String> findUserByUsernameAndEmail(@RequestBody CheckForUserDto userDto) {
+        if (service.existsByUsername(userDto.username()))
+            return new ResponseEntity<>("Username already exists", HttpStatus.NOT_ACCEPTABLE);
+
+        if (service.existsByEmail(userDto.email()))
+            return new ResponseEntity<>("Email already exists", HttpStatus.NOT_ACCEPTABLE);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 }

@@ -23,7 +23,7 @@ public class RegisterController {
     private final PasswordEncoder passwordEncoder;
     @PostMapping("/")
     public ResponseEntity<String> registerAccount(@Validated @RequestBody SignUpDto dto){
-        if (service.existsByUsernameAndEmail(dto.username(), dto.email()))
+        if (service.existsByUsernameOrEmail(dto.username(), dto.email()))
             return new ResponseEntity<>("Username or email already exists", NOT_ACCEPTABLE);
 
         User user = new User();
