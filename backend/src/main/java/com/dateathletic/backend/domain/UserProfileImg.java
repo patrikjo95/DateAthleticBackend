@@ -19,12 +19,17 @@ public class UserProfileImg {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
-    @Column(nullable = false)
+    @Column(columnDefinition = "LONGTEXT" )
     private String mainImg;
+    @Column(columnDefinition = "LONGTEXT" )
     private String url1;
+    @Column(columnDefinition = "LONGTEXT" )
     private String url2;
+    @Column(columnDefinition = "LONGTEXT" )
     private String url3;
+    @Column(columnDefinition = "LONGTEXT" )
     private String url4;
+    @Column(columnDefinition = "LONGTEXT" )
     private String url5;
 
     @OneToOne

@@ -61,5 +61,7 @@ public record SignUpDto(
 
                 user.setUserInfo(userInfo);
                 userInfo.setUser(user);
+
+
         }
 }
