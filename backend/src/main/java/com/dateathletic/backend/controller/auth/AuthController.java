@@ -31,6 +31,6 @@ public class AuthController {
         if(userDetails != null){
             return ResponseEntity.ok(jwt.generateToken(userDetails));
         }
-        return ResponseEntity.status(400).body("Some error has occured!");
+        return ResponseEntity.status(400).body("Some error has occurred!");
     }
 }
