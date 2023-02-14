@@ -11,4 +11,13 @@ public record CheckForUserDto(
 
 
 ) {
+
+        public String getUsername(){
+                return username;
+        }
+
+        public String getEmail() {
+                return email;
+        }
+
 }

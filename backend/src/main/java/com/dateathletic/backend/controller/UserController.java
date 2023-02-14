@@ -7,10 +7,12 @@ import com.dateathletic.backend.service.userservice.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
+@CrossOrigin (origins = "http://localhost:63342/")
 @RequiredArgsConstructor
 @RequestMapping("/user")
 public class UserController {
@@ -20,16 +22,4 @@ public class UserController {
             User user = service.getUserByUsername(username).orElseThrow();
             return UserDisplayDto.mapToDto(user);
     }
-
-    @GetMapping("/username/email")
-    public ResponseEntity<String> findUserByUsernameAndEmail(@RequestBody CheckForUserDto userDto) {
-        if (service.existsByUsername(userDto.username()))
-            return new ResponseEntity<>("Username already exists", HttpStatus.NOT_ACCEPTABLE);
-
-        if (service.existsByEmail(userDto.email()))
-            return new ResponseEntity<>("Email already exists", HttpStatus.NOT_ACCEPTABLE);
-
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
-
 }
